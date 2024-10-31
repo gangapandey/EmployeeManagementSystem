@@ -1,0 +1,118 @@
+USE EMS;
+
+INSERT INTO Employees (FirstName, LastName, DepartmentID, HireDate, Salary, Position) VALUES 
+('Alice', 'Johnson', NULL, '2023-01-15', 60000.00, 'HR Manager'),  
+('John', 'Doe', NULL, '2023-02-20', 70000.00, 'IT Manager'),        
+('Emma', 'Wilson', NULL, '2023-04-10', 50000.00, 'Finance Manager'), 
+('Noah', 'Taylor', NULL, '2023-06-01', 52000.00, 'Marketing Manager'), 
+('Liam', 'Thomas', NULL, '2023-08-01', 55000.00, 'Sales Manager'),   
+('Ethan', 'White', NULL, '2023-10-10', 45000.00, 'Customer Support Lead'), 
+('William', 'Martin', NULL, '2023-12-20', 60000.00, 'Product Manager'), 
+('James', 'Garcia', NULL, '2024-02-01', 70000.00, 'QA Lead'),       
+('Benjamin', 'Robinson', NULL, '2024-04-10', 70000.00, 'R&D Manager'), 
+('Oliver', 'Rodriguez', NULL, '2024-06-01', 60000.00, 'Logistics Manager'), 
+('Henry', 'Lee', NULL, '2024-08-10', 55000.00, 'Legal Counsel'),    
+('Alexander', 'Hall', NULL, '2024-10-01', 60000.00, 'Admin Manager'), 
+('Jackson', 'Young', NULL, '2024-12-10', 60000.00, 'PR Manager'),   
+('Samuel', 'King', NULL, '2024-02-01', 62000.00, 'Training Manager'), 
+('David', 'Scott', NULL, '2024-06-01', 60000.00, 'Purchasing Manager'), 
+('Matthew', 'Gonzalez', NULL, '2024-08-10', 55000.00, 'IT Support Lead'), 
+('Lucas', 'Carter', NULL, '2024-10-01', 70000.00, 'Web Development Manager'), 
+('Jacob', 'Perez', NULL, '2024-12-10', 60000.00, 'Database Manager'), 
+('Aiden', 'Turner', NULL, '2024-02-01', 65000.00, 'Data Analyst'), 
+('Zoe', 'Mitchell', NULL, '2024-11-15', 42000.00, 'Data Scientist'); 
+
+
+INSERT INTO Departments (DepartmentName, ManagerID) VALUES 
+('Human Resources', 1),  
+('IT Department', 2),    
+('Finance', 3),          
+('Marketing', 4),       
+('Sales', 5),            
+('Customer Support', 6), 
+('Product Development', 7), 
+('Quality Assurance', 8), 
+('Research and Development', 9), 
+('Logistics', 10),       
+('Legal', 11),          
+('Administration', 12),  
+('Public Relations', 13), 
+('Training and Development', 14), 
+('Purchasing', 15),      
+('IT Support', 16),      
+('Web Development', 17),  
+('Network Administration', 18), 
+('Database Management', 19), 
+('Data Analysis', 20);    
+
+
+INSERT INTO Salaries (EmployeeID, Amount, EffectiveDate) VALUES
+(1, 55000.00, '2022-01-15'),
+(2, 60000.00, '2021-03-12'),
+(3, 70000.00, '2020-05-22'),
+(4, 50000.00, '2023-07-30'),
+(5, 62000.00, '2022-02-11'),
+(6, 45000.00, '2021-06-29'),
+(7, 75000.00, '2020-10-05'),
+(8, 48000.00, '2023-01-10'),
+(9, 53000.00, '2020-04-18'),
+(10, 46000.00, '2022-08-25'),
+(11, 70000.00, '2021-09-15'),
+(12, 68000.00, '2022-11-05'),
+(13, 56000.00, '2021-05-19'),
+(14, 58000.00, '2020-02-22'),
+(15, 49000.00, '2022-07-10'),
+(16, 53000.00, '2021-01-01'),
+(17, 60000.00, '2023-06-12'),
+(18, 72000.00, '2020-08-20'),
+(19, 80000.00, '2021-03-03'),
+(20, 65000.00, '2022-09-18');
+
+
+
+INSERT INTO Projects (ProjectName, StartDate, EndDate) VALUES
+('Employee Portal', '2022-01-01', '2022-12-31'),
+('Payroll System', '2021-03-01', '2021-12-31'),
+('Project Management Tool', '2020-06-01', '2021-05-31'),
+('Customer Relationship Management', '2022-05-01', '2023-04-30'),
+('New Product Launch', '2023-01-01', '2023-12-31'),
+('Website Redesign', '2021-02-01', '2021-10-31'),
+('Marketing Campaign', '2022-10-01', '2022-12-31'),
+('Sales Growth Strategy', '2022-04-01', '2023-03-31'),
+('Training Program Development', '2021-05-01', '2022-04-30'),
+('Research on Competitors', '2022-01-01', '2022-06-30'),
+('IT Infrastructure Upgrade', '2023-05-01', '2023-08-31'),
+('Data Migration Project', '2022-02-01', '2022-05-31'),
+('Product Development', '2021-09-01', '2022-08-31'),
+('Compliance Audit', '2023-03-01', '2023-04-30'),
+('Customer Feedback System', '2022-06-01', '2022-12-31'),
+('Quality Assurance Review', '2023-01-01', '2023-03-31'),
+('Event Planning', '2022-04-01', '2022-09-30'),
+('Software Updates', '2021-01-01', '2021-12-31'),
+('Market Research', '2022-07-01', '2022-10-31'),
+('Security Enhancement', '2023-02-01', '2023-05-31'),
+('New Office Setup', '2022-12-01', '2023-06-30');
+
+
+INSERT INTO Attendance (EmployeeID, ADate, Status) VALUES 
+(1, '2024-01-01', 'Present'),
+(2, '2024-01-01', 'Absent'),
+(3, '2024-01-01', 'Present'),
+(4, '2024-01-01', 'Present'),
+(5, '2024-01-01', 'Absent'),
+(1, '2024-01-02', 'Present'),
+(2, '2024-01-02', 'Present'),
+(3, '2024-01-02', 'Present'),
+(4, '2024-01-02', 'Absent'),
+(5, '2024-01-02', 'Present'),
+(1, '2024-01-03', 'Absent'),
+(2, '2024-01-03', 'Present'),
+(3, '2024-01-03', 'Present'),
+(4, '2024-01-03', 'Present'),
+(5, '2024-01-03', 'Absent'),
+(1, '2024-01-04', 'Present'),
+(2, '2024-01-04', 'Present'),
+(3, '2024-01-04', 'Absent'),
+(4, '2024-01-04', 'Present'),
+(5, '2024-01-04', 'Present');
+
