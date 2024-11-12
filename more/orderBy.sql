@@ -67,38 +67,46 @@ FROM Projects
 ORDER BY Duration DESC;
 
 -- Write a query to find the top 3 highest-paid employees in each department ordered by salary.
-SELECT 
-    e.EmployeeID,
-    e.FirstName,
-    e.LastName,
-    e.Salary,
-    d.DepartmentName
-FROM 
-    Employees e
-JOIN 
-    Departments d ON e.DepartmentID = d.DepartmentID
-WHERE 
-    e.EmployeeID IN (
+SELECT e.EmployeeID, e.FirstName, e.LastName, e.Salary, d.DepartmentName
+FROM Employees e
+JOIN Departments d 
+ON e.DepartmentID = d.DepartmentID
+WHERE e.EmployeeID IN (
         SELECT EmployeeID
-        FROM (
-            SELECT 
-                EmployeeID,
-                DepartmentID,
-                Salary,
-                ROW_NUMBER() OVER (PARTITION BY DepartmentID ORDER BY Salary DESC) AS SalaryRank
-            FROM 
-                Employees
-        ) AS Ranked
-        WHERE SalaryRank <= 3
-    )
-ORDER BY 
-    d.DepartmentID, e.Salary DESC;
-
-
-
+        FROM (SELECT EmployeeID, DepartmentID, Salary, ROW_NUMBER() OVER (PARTITION BY DepartmentID ORDER BY Salary DESC) AS SalaryRank
+            FROM Employees) AS Ranked
+        WHERE SalaryRank <= 3)
+ORDER BY d.DepartmentID, e.Salary DESC;
 
 -- Retrieve the 5 most recently completed projects ordered by their completion date.
 SELECT TOP 5 ProjectName
 FROM Projects
 ORDER BY EndDate DESC;
+
+-- Retrieve all employees and order them first by department, then by hire date in descending order, and finally by salary in ascending order. Place any employees with a NULL salary at the end of the list.
+SELECT * 
+FROM Employees
+ORDER BY DepartmentID, HireDate DESC, 
+			CASE WHEN Salary IS NULL THEN 1 ELSE 0 END,
+			Salary ASC;
+
+-- Write a query that orders employees by job title, but with a twist: make "Manager" positions appear at the top of the list, followed by "Developer" positions, and then all other positions alphabetically.
+SELECT FirstName, Position
+FROM Employees
+ORDER BY  CASE WHEN Position = 'Manager' Then 1
+				WHEN Position = 'Developer' Then 2
+				ELSE 3
+				END,
+				Position ASC;
+
+-- Write a query that retrieves distinct job positions, ordered by the number of employees holding that position in descending order, and then alphabetically by position name.
+SELECT Position, COUNT(*) AS EmployeeCount
+FROM Employees
+GROUP BY Position
+ORDER BY EmployeeCount DESC, Position ASC;
+
+
+
+	
+
 
